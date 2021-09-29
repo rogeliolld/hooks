@@ -18,9 +18,9 @@ describe('Prueba en todoReducer', () => {
             type: 'add',
             payload: newTodo
         }
-        const state = todoReducer(demoTodos, action); // Mandamos el nuevo todo
+        const state = todoReducer(demoTodos, action); // Agregamos el nuevo elemento al array
         expect(state.length).toBe(3); //Comprobamos que efectivamente se agrego, para este caso se hace con el toBe(3), ya que anteriormente teniamos 2
-        expect(state).toEqual([...demoTodos, newTodo]) //con este comprobamos que se agrego nuestro state a demoTodos
+        expect(state).toEqual([...demoTodos, newTodo]) //Con esto comparamos que el State sea igual al array 'demoTodos', es decir tenga los mismo elementos en este caso con el nuevo elemento
     });
 
 
@@ -43,8 +43,8 @@ describe('Prueba en todoReducer', () => {
 
         const state = todoReducer(demoTodos, action); 
         
-        expect(state[0].done).toBe(true);// Hacemos el cambio en el 'Done' del TODO seleccionado
-        expect(state[1]).toEqual( demoTodos[1] ); //Comprobamos que los elemento tanto 'State' como 'demoTodos', sean iguales
+        expect(state[0].done).toBe(true);// El primero elemento [0], este en 'True'(si estaba en False lo pasa a 'Done')
+        expect(state[1]).toEqual( demoTodos[1] ); //Comprobamos que los elemento tanto 'State' en la posicion [1] como 'demoTodos'[1], sean iguales, que no cambio
         
     });
 
